@@ -105,11 +105,10 @@
     </select>
 
     <label for="jenisTER">Jenis TER</label>
-    <select id="jenisTER">
-      <option value="A">TER A</option>
-      <option value="B">TER B</option>
-      <option value="C">TER C</option>
-    </select>
+    <input type="text" id="jenisTER" readonly />
+
+    <label for="tarifTER">Tarif TER (%)</label>
+    <input type="text" id="tarifTER" readonly />
 
     <button onclick="hitungTER()">Hitung TER & Pajak</button>
 
@@ -148,9 +147,11 @@
     };
 
     function hitungTER() {
-      const jenis = document.getElementById("jenisTER").value;
       const brutoBulanan = parseInt(document.getElementById("penghasilan").value);
       const statusPTKP = parseInt(document.getElementById("statusPTKP").value);
+
+      const jenis = brutoBulanan <= 10000000 ? 'A' : brutoBulanan <= 20000000 ? 'B' : 'C';
+      document.getElementById("jenisTER").value = jenis;
 
       const nama = document.getElementById("nama").value;
       const npwp = document.getElementById("npwp").value;
@@ -163,14 +164,18 @@
       const email = document.getElementById("email").value;
 
       const output = document.getElementById("output");
+      const tarifField = document.getElementById("tarifTER");
       const tarifObj = tarifTER[jenis].find(d => brutoBulanan >= d.min && brutoBulanan < d.max);
 
       if (!tarifObj) {
         output.innerHTML = '<p>Tarif tidak ditemukan.</p>';
+        tarifField.value = '';
         return;
       }
 
       const ter = tarifObj.tarif;
+      tarifField.value = ter;
+
       const brutoTahunan = brutoBulanan * 12;
       const pkp = Math.max(0, brutoTahunan - statusPTKP);
       const pajakTahunan = (ter / 100) * brutoTahunan;
@@ -200,4 +205,3 @@
   </script>
 </body>
 </html>
-
