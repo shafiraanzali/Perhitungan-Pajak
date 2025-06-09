@@ -345,4 +345,3 @@ function printResult() {
   </script>
 </body>
 </html>
-
