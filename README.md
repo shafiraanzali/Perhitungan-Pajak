@@ -3,51 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kalkulator Tarif Efektif Rata-rata (TER)</title>
+  <title>Kalkulator Tarif Efektif Rata-Rata (TER)</title>
+</div>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background-color: #f4f4f4;
-    }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    label, select, input {
-      display: block;
-      margin-bottom: 1rem;
-      width: 100%;
-    }
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+  }
+.header {
+    background-color: #002147; /* Biru tua ala DJP */
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    border-bottom: 5px solid #ffc107; /* Gold garis bawah */
+  }
+
+.header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .header p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 0.5rem;
+  }
+
+ .container {
+    max-width: 700px;
+    background: white;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  }
+   label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+input, select {
+    width: 100%;
+    padding: 6px 10px;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
     button {
-      padding: 0.75rem;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .result {
-      margin-top: 1rem;
-      padding: 1rem;
-      background: #eef;
-      border-radius: 5px;
-    }
-    .result p {
-      margin: 0.5rem 0;
-    }
-    h2 {
-      margin-top: 2rem;
-    }
+  background-color: #FFD700;
+  color: #002147;
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background-color: #e6c200;
+}
+ .result {
+    margin-top: 2rem;
+    background: #e9f0f7;
+    border-left: 4px solid #002147;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+   .result p {
+    margin: 0.5rem 0;
+  }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Kalkulator Tarif Efektif Rata-rata (TER)</h2>
+<div class="header">
+  <h1>PT INDOTEX</h1>
+  <p>Kalkulator Pajak Tarif Efektif Rata-Rata (TER)</p>
+</div>
 
     <label>Nama Wajib Pajak</label>
     <input type="text" id="nama" placeholder="Contoh: Budi Santoso" />
@@ -62,58 +99,43 @@
     <input type="text" id="jabatan" placeholder="Contoh: Manajer Keuangan" />
 
     <label>Alamat Tempat Tinggal</label>
-    <input type="text" id="alamat" placeholder="Contoh: Jl. Merdeka No. 10, Jakarta" />
+<input type="text" id="alamat" placeholder="Contoh: Jl. Merdeka No. 10, Jakarta" />
 
-    <label>Status Pernikahan</label>
-    <select id="statusPernikahan">
-      <option value="TK">Tidak Kawin</option>
-      <option value="K">Kawin</option>
-      <option value="K/I">Kawin (Penghasilan Istri Digabung)</option>
-    </select>
+<label>Nomor Telepon/HP</label>
+<input type="text" id="telepon" placeholder="Contoh: 081234567890" />
 
-    <label>Jumlah Tanggungan</label>
-    <select id="tanggungan">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-    </select>
+<label>Email</label>
+<input type="email" id="email" placeholder="Contoh: email@contoh.com" />
 
-    <label>Nomor Telepon/HP</label>
-    <input type="text" id="telepon" placeholder="Contoh: 081234567890" />
+<label for="penghasilan">Penghasilan Bruto Bulanan (Rp)</label>
+<input type="number" id="penghasilan" placeholder="Contoh: 8500000" />
 
-    <label>Email</label>
-    <input type="email" id="email" placeholder="Contoh: email@contoh.com" />
+<label for="statusPTKP">Status PTKP</label>
+<select id="statusPTKP">
+  <option value="54000000">TK/0 - Rp54.000.000</option>
+  <option value="58500000">TK/1 - Rp58.500.000</option>
+  <option value="63000000">TK/2 - Rp63.000.000</option>
+  <option value="67500000">TK/3 - Rp67.500.000</option>
+  <option value="58500000">K/0 - Rp58.500.000</option>
+  <option value="63000000">K/1 - Rp63.000.000</option>
+  <option value="67500000">K/2 - Rp67.500.000</option>
+  <option value="72000000">K/3 - Rp72.000.000</option>
+  <option value="112500000">K/I/0 - Rp112.500.000</option>
+  <option value="117000000">K/I/1 - Rp117.000.000</option>
+  <option value="121500000">K/I/2 - Rp121.500.000</option>
+  <option value="126000000">K/I/3 - Rp126.000.000</option>
+</select>
 
-    <label for="penghasilan">Penghasilan Bruto Bulanan (Rp)</label>
-    <input type="number" id="penghasilan" placeholder="Contoh: 8500000" />
+<label for="jenisTER">Jenis TER</label>
+<input type="text" id="jenisTER" readonly />
 
-    <label for="statusPTKP">Status PTKP</label>
-    <select id="statusPTKP">
-      <option value="54000000">TK/0 - Rp54.000.000</option>
-      <option value="58500000">TK/1 - Rp58.500.000</option>
-      <option value="63000000">TK/2 - Rp63.000.000</option>
-      <option value="67500000">TK/3 - Rp67.500.000</option>
-      <option value="58500000">K/0 - Rp58.500.000</option>
-      <option value="63000000">K/1 - Rp63.000.000</option>
-      <option value="67500000">K/2 - Rp67.500.000</option>
-      <option value="72000000">K/3 - Rp72.000.000</option>
-      <option value="112500000">K/I/0 - Rp112.500.000</option>
-      <option value="117000000">K/I/1 - Rp117.000.000</option>
-      <option value="121500000">K/I/2 - Rp121.500.000</option>
-      <option value="126000000">K/I/3 - Rp126.000.000</option>
-    </select>
+<label for="tarifTER">Tarif TER (%)</label>
+<input type="text" id="tarifTER" readonly />
 
-    <label for="jenisTER">Jenis TER</label>
-    <input type="text" id="jenisTER" readonly />
+<button onclick="hitungTER()">Calculate</button>
+<button onclick="printResult()">Cetak Hasil ke PDF</button>
 
-    <label for="tarifTER">Tarif TER (%)</label>
-    <input type="text" id="tarifTER" readonly />
-
-    <button onclick="hitungTER()">Hitung TER & Pajak</button>
-
-    <div class="result" id="output"></div>
-  </div>
+<div class="result" id="output"></div>
 
   <script>
     const tarifTER = {
@@ -251,61 +273,76 @@
 };
 
     function hitungTER() {
-      const brutoBulanan = parseInt(document.getElementById("penghasilan").value);
-      const statusPTKP = parseInt(document.getElementById("statusPTKP").value);
+  const brutoBulanan = parseInt(document.getElementById("penghasilan").value);
+  const statusPTKP = parseInt(document.getElementById("statusPTKP").value);
 
-      const jenis = brutoBulanan <= 10000000 ? 'A' : brutoBulanan <= 20000000 ? 'B' : 'C';
-      document.getElementById("jenisTER").value = jenis;
+  const jenis = brutoBulanan <= 10000000 ? 'A' : brutoBulanan <= 20000000 ? 'B' : 'C';
+  document.getElementById("jenisTER").value = jenis;
 
-      const nama = document.getElementById("nama").value;
-      const npwp = document.getElementById("npwp").value;
-      const nik = document.getElementById("nik").value;
-      const jabatan = document.getElementById("jabatan").value;
-      const alamat = document.getElementById("alamat").value;
-      const status = document.getElementById("statusPernikahan").value;
-      const tanggungan = document.getElementById("tanggungan").value;
-      const telepon = document.getElementById("telepon").value;
-      const email = document.getElementById("email").value;
+  const nama = document.getElementById("nama").value;
+  const npwp = document.getElementById("npwp").value;
+  const nik = document.getElementById("nik").value;
+  const jabatan = document.getElementById("jabatan").value;
+  const alamat = document.getElementById("alamat").value;
+  const telepon = document.getElementById("telepon").value;
+  const email = document.getElementById("email").value;
 
-      const output = document.getElementById("output");
-      const tarifField = document.getElementById("tarifTER");
-      const tarifObj = tarifTER[jenis].find(d => brutoBulanan >= d.min && brutoBulanan < d.max);
+  const output = document.getElementById("output");
+  const tarifField = document.getElementById("tarifTER");
+  const tarifObj = tarifTER[jenis].find(d => brutoBulanan >= d.min && brutoBulanan < d.max);
 
-      if (!tarifObj) {
-        output.innerHTML = '<p>Tarif tidak ditemukan.</p>';
-        tarifField.value = '';
-        return;
-      }
+  if (!tarifObj) {
+    output.innerHTML = '<p>Tarif tidak ditemukan.</p>';
+    tarifField.value = '';
+    return;
+  }
+  const ter = tarifObj.tarif;
+  tarifField.value = ter;
 
-      const ter = tarifObj.tarif;
-      tarifField.value = ter;
+  const brutoTahunan = brutoBulanan * 12;
+  const pkp = Math.max(0, brutoTahunan - statusPTKP);
+  const pajakTahunan = (ter / 100) * brutoTahunan;
+  const pajakBulanan = pajakTahunan / 12;
 
-      const brutoTahunan = brutoBulanan * 12;
-      const pkp = Math.max(0, brutoTahunan - statusPTKP);
-      const pajakTahunan = (ter / 100) * brutoTahunan;
-      const pajakBulanan = pajakTahunan / 12;
+  output.innerHTML = `
+    <h3>Hasil Perhitungan TER & Pajak</h3>
+    <p><strong>Nama Wajib Pajak:</strong> ${nama}</p>
+    <p><strong>NPWP:</strong> ${npwp}</p>
+    <p><strong>NIK:</strong> ${nik}</p>
+    <p><strong>Jabatan:</strong> ${jabatan}</p>
+    <p><strong>Alamat:</strong> ${alamat}</p>
+    <p><strong>No HP:</strong> ${telepon}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <hr />
+    <p><strong>Jenis TER:</strong> ${jenis}</p>
+    <p><strong>Tarif TER:</strong> ${ter}%</p>
+    <p><strong>Penghasilan Bruto Tahunan:</strong> Rp ${brutoTahunan.toLocaleString('id-ID')}</p>
+    <p><strong>PTKP:</strong> Rp ${statusPTKP.toLocaleString('id-ID')}</p>
+    <p><strong>PKP (Penghasilan Kena Pajak):</strong> Rp ${pkp.toLocaleString('id-ID')}</p>
+    <p><strong>Pajak Terutang Tahunan:</strong> Rp ${pajakTahunan.toLocaleString('id-ID')}</p>
+    <p><strong>Pajak Bulanan:</strong> Rp ${pajakBulanan.toLocaleString('id-ID')}</p>
+  `;
+}
+function printResult() {
+    const hasil = document.getElementById("output").innerHTML;
+    const style = `
+      <style>
+        body { font-family: Arial, sans-serif; padding: 2rem; }
+        h3 { text-align: center; }
+        p { margin: 0.5rem 0; }
+      </style>
+    `;
 
-      output.innerHTML = `
-        <h3>Hasil Perhitungan TER & Pajak</h3>
-        <p><strong>Nama Wajib Pajak:</strong> ${nama}</p>
-        <p><strong>NPWP:</strong> ${npwp}</p>
-        <p><strong>NIK:</strong> ${nik}</p>
-        <p><strong>Jabatan:</strong> ${jabatan}</p>
-        <p><strong>Alamat:</strong> ${alamat}</p>
-        <p><strong>Status Perkawinan:</strong> ${status}</p>
-        <p><strong>Jumlah Tanggungan:</strong> ${tanggungan}</p>
-        <p><strong>No HP:</strong> ${telepon}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <hr />
-        <p><strong>Jenis TER:</strong> ${jenis}</p>
-        <p><strong>Tarif TER:</strong> ${ter}%</p>
-        <p><strong>Penghasilan Bruto Tahunan:</strong> Rp ${brutoTahunan.toLocaleString('id-ID')}</p>
-        <p><strong>PTKP:</strong> Rp ${statusPTKP.toLocaleString('id-ID')}</p>
-        <p><strong>PKP (Penghasilan Kena Pajak):</strong> Rp ${pkp.toLocaleString('id-ID')}</p>
-        <p><strong>Pajak Terutang Tahunan:</strong> Rp ${pajakTahunan.toLocaleString('id-ID')}</p>
-        <p><strong>Pajak Bulanan:</strong> Rp ${pajakBulanan.toLocaleString('id-ID')}</p>
-      `;
-    }
+    const win = window.open('', '', 'height=800,width=600');
+    win.document.write('<html><head><title>Hasil Perhitungan Pajak</title>');
+    win.document.write(style);
+    win.document.write('</head><body>');
+    win.document.write(hasil);
+    win.document.write('</body></html>');
+    win.document.close();
+    win.print();
+  }
   </script>
 </body>
 </html>
+
