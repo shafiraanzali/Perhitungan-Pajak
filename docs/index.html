@@ -112,18 +112,14 @@ button:hover {
 
 <label for="statusPTKP">Status PTKP</label>
 <select id="statusPTKP">
-  <option value="54000000">TK/0 - Rp54.000.000</option>
-  <option value="58500000">TK/1 - Rp58.500.000</option>
-  <option value="63000000">TK/2 - Rp63.000.000</option>
-  <option value="67500000">TK/3 - Rp67.500.000</option>
-  <option value="58500000">K/0 - Rp58.500.000</option>
-  <option value="63000000">K/1 - Rp63.000.000</option>
-  <option value="67500000">K/2 - Rp67.500.000</option>
-  <option value="72000000">K/3 - Rp72.000.000</option>
-  <option value="112500000">K/I/0 - Rp112.500.000</option>
-  <option value="117000000">K/I/1 - Rp117.000.000</option>
-  <option value="121500000">K/I/2 - Rp121.500.000</option>
-  <option value="126000000">K/I/3 - Rp126.000.000</option>
+  <option value="TK/0" data-ptkp="54000000">TK/0 - Rp54.000.000</option>
+  <option value="TK/1" data-ptkp="58500000">TK/1 - Rp58.500.000</option>
+  <option value="TK/2" data-ptkp="63000000">TK/2 - Rp63.000.000</option>
+  <option value="TK/3" data-ptkp="67500000">TK/3 - Rp67.500.000</option>
+  <option value="K/0"  data-ptkp="58500000">K/0 - Rp58.500.000</option>
+  <option value="K/1"  data-ptkp="63000000">K/1 - Rp63.000.000</option>
+  <option value="K/2"  data-ptkp="67500000">K/2 - Rp67.500.000</option>
+  <option value="K/3"  data-ptkp="72000000">K/3 - Rp72.000.000</option>
 </select>
 
 <label for="jenisTER">Jenis TER</label>
@@ -274,11 +270,21 @@ button:hover {
 
     function hitungTER() {
   const brutoBulanan = parseInt(document.getElementById("penghasilan").value);
-  const statusPTKP = parseInt(document.getElementById("statusPTKP").value);
+  const statusPTKPElement = document.getElementById("statusPTKP");
+  const statusLabel = statusPTKPElement.value;
+  const statusPTKP = parseInt(statusPTKPElement.selectedOptions[0].getAttribute("data-ptkp"));
 
-  const jenis = brutoBulanan <= 10000000 ? 'A' : brutoBulanan <= 20000000 ? 'B' : 'C';
+  // Tentukan jenis TER berdasarkan status PTKP
+  let jenis = '';
+  if (["TK/0", "TK/1", "K/0"].includes(statusLabel)) {
+    jenis = 'A';
+  } else if (["TK/2", "TK/3", "K/1", "K/2"].includes(statusLabel)) {
+    jenis = 'B';
+  } else if (["K/3"].includes(statusLabel)) {
+    jenis = 'C';
+  }
   document.getElementById("jenisTER").value = jenis;
-
+  
   const nama = document.getElementById("nama").value;
   const npwp = document.getElementById("npwp").value;
   const nik = document.getElementById("nik").value;
