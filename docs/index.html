@@ -81,11 +81,12 @@ button:hover {
   </style>
 </head>
 <body>
-<div class="header">
-  <h1>PT INDOTEX</h1>
-  <p>Kalkulator Pajak Tarif Efektif Rata-Rata (TER)</p>
-</div>
+  <div class="header">
+    <h1>PT INDOTEX</h1>
+    <p>Kalkulator Pajak Tarif Efektif Rata-Rata (TER)</p>
+  </div>
 
+    <div class="container">
     <label>Nama Wajib Pajak</label>
     <input type="text" id="nama" placeholder="Contoh: Budi Santoso" />
 
@@ -99,39 +100,41 @@ button:hover {
     <input type="text" id="jabatan" placeholder="Contoh: Manajer Keuangan" />
 
     <label>Alamat Tempat Tinggal</label>
-<input type="text" id="alamat" placeholder="Contoh: Jl. Merdeka No. 10, Jakarta" />
+    <input type="text" id="alamat" placeholder="Contoh: Jl. Merdeka No. 10, Jakarta" />
 
-<label>Nomor Telepon/HP</label>
-<input type="text" id="telepon" placeholder="Contoh: 081234567890" />
+    <label>Nomor Telepon/HP</label>
+    <input type="text" id="telepon" placeholder="Contoh: 081234567890" />
 
-<label>Email</label>
-<input type="email" id="email" placeholder="Contoh: email@contoh.com" />
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Contoh: email@contoh.com" />
 
-<label for="penghasilan">Penghasilan Bruto Bulanan (Rp)</label>
-<input type="number" id="penghasilan" placeholder="Contoh: 8500000" />
+    <label for="penghasilan">Penghasilan Bruto Bulanan (Rp)</label>
+    <input type="number" id="penghasilan" placeholder="Contoh: 8500000" />
 
-<label for="statusPTKP">Status PTKP</label>
-<select id="statusPTKP">
-  <option value="TK/0" data-ptkp="54000000">TK/0 - Rp54.000.000</option>
-  <option value="TK/1" data-ptkp="58500000">TK/1 - Rp58.500.000</option>
-  <option value="TK/2" data-ptkp="63000000">TK/2 - Rp63.000.000</option>
-  <option value="TK/3" data-ptkp="67500000">TK/3 - Rp67.500.000</option>
-  <option value="K/0"  data-ptkp="58500000">K/0 - Rp58.500.000</option>
-  <option value="K/1"  data-ptkp="63000000">K/1 - Rp63.000.000</option>
-  <option value="K/2"  data-ptkp="67500000">K/2 - Rp67.500.000</option>
-  <option value="K/3"  data-ptkp="72000000">K/3 - Rp72.000.000</option>
-</select>
+    <label for="statusPTKP">Status PTKP</label>
+    <select id="statusPTKP">
+      <option value="TK/0" data-ptkp="54000000">TK/0 - Rp54.000.000</option>
+      <option value="TK/1" data-ptkp="58500000">TK/1 - Rp58.500.000</option>
+      <option value="TK/2" data-ptkp="63000000">TK/2 - Rp63.000.000</option>
+      <option value="TK/3" data-ptkp="67500000">TK/3 - Rp67.500.000</option>
+      <option value="K/0"  data-ptkp="58500000">K/0 - Rp58.500.000</option>
+      <option value="K/1"  data-ptkp="63000000">K/1 - Rp63.000.000</option>
+      <option value="K/2"  data-ptkp="67500000">K/2 - Rp67.500.000</option>
+      <option value="K/3"  data-ptkp="72000000">K/3 - Rp72.000.000</option>
+    </select>
 
-<label for="jenisTER">Jenis TER</label>
-<input type="text" id="jenisTER" readonly />
+    <label for="jenisTER">Jenis TER</label>
+    <input type="text" id="jenisTER" readonly />
 
-<label for="tarifTER">Tarif TER (%)</label>
-<input type="text" id="tarifTER" readonly />
+    <label for="tarifTER">Tarif TER (%)</label>
+    <input type="text" id="tarifTER" readonly />
 
-<button onclick="hitungTER()">Calculate</button>
-<button onclick="printResult()">Cetak Hasil ke PDF</button>
+    <button onclick="hitungTER()">Calculate</button>
+    <button onclick="printResult()">Cetak Hasil ke PDF</button>
 
-<div class="result" id="output"></div>
+    <div class="result" id="output"></div>
+  </div>
+</body>
 
   <script>
     const tarifTER = {
